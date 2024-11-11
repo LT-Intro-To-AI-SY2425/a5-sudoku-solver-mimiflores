@@ -106,7 +106,20 @@ class Board:
         Returns:
             a tuple of row, column index identifying the most constrained cell
         """
-        pass
+        most_constrained_cell = None
+        min_possibilities = float('inf')  
+
+        for row in range(self.size):
+            for col in range(self.size):
+                cell = self.rows[row_idx][col_idx]
+
+                if isinstance(cell, list):
+                    num_possibilities = len(cell)
+                    if num_possibilities < min_possibilities:
+                        most_constrained_cell = (row, col)
+                        min_possibilities = num_possibilities
+        return most_constrained_cell
+         
 
     def failure_test(self) -> bool:
         """Check if we've failed to correctly fill out the puzzle. If we find a cell
