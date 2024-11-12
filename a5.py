@@ -109,14 +109,14 @@ class Board:
         most_constrained_cell = None
         min_possibilities = float('inf')  
 
-        for row in range(self.size):
-            for col in range(self.size):
-                cell = self.rows[row_idx][col_idx]
+        for r in range(self.size):
+            for c in range(self.size):
+                cell = self.rows[r][c]
 
                 if isinstance(cell, list):
                     num_possibilities = len(cell)
                     if num_possibilities < min_possibilities:
-                        most_constrained_cell = (row, col)
+                        most_constrained_cell = (r, c)
                         min_possibilities = num_possibilities
         return most_constrained_cell
          
