@@ -130,10 +130,10 @@ class Board:
             True if we have failed to fill out the puzzle, False otherwise
         """
         for r in range(self.size):
-        for c in range(self.size):
+            for c in range(self.size):
             cell = self.rows[r][c]
-            if isinstance(cell, list) and not cell:  
-                return True  
+                if isinstance(cell, list) and not cell:  
+                    return True  
         return False
 
     def goal_test(self) -> bool:
