@@ -107,7 +107,7 @@ class Board:
             a tuple of row, column index identifying the most constrained cell
         """
         most_constrained_cell = None
-        shortest = 9 
+        shortest = self.size 
 
         for r in range(self.size):
             for c in range(self.size):
