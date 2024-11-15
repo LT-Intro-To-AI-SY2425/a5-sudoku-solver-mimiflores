@@ -112,7 +112,7 @@ class Board:
         for r in range(self.size):
             for c in range(self.size):
                 cell = self.rows[r][c]
-                if isinstance(cell, list):
+                if isinstance(cell, list) and len(cell) < shortest:
                     curr_cell = len(cell)
                     if curr_cell < shortest:
                         most_constrained_cell = [r, c]
