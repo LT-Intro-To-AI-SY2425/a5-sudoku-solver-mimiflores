@@ -115,7 +115,7 @@ class Board:
                 if isinstance(cell, list) and len(cell) < shortest:
                     curr_cell = len(cell)
                     if curr_cell < shortest:
-                        most_constrained_cell = [r, c]
+                        most_constrained_cell = (r, c) 
                         shortest = curr_cell
         return most_constrained_cell
          
