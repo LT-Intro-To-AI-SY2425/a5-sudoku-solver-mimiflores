@@ -106,19 +106,17 @@ class Board:
         Returns:
             a tuple of row, column index identifying the most constrained cell
         """
-        most_constrained_cell = None
-        shortest = self.size 
-
-        for r in range(self.size):
-            for c in range(self.size):
-                cell = self.rows[r][c]
-                if isinstance(cell, list) and len(cell) < shortest:
-                    curr_cell = len(cell)
-                    if curr_cell < shortest:
-                        most_constrained_cell = (r, c) 
-                        shortest = curr_cell
-        return most_constrained_cell
-         
+        mini = 9
+        row = 0
+        column = 0
+        for i in range(self.size):
+            for j in range(self.size):
+                cell = self.rows[i][j]
+                if isinstance(cell, list) and len(cell) < mini:
+                    mini = len(cell)
+                    row = i
+                    column = j
+        return (row, column)
 
     def failure_test(self) -> bool:
         """Check if we've failed to correctly fill out the puzzle. If we find a cell
@@ -130,7 +128,7 @@ class Board:
         """
         for r in range(self.size):
             for c in range(self.size):
-            cell = self.rows[r][c]
+                cell = self.rows[r][c]  # Indentation fixed here
                 if isinstance(cell, list) and not cell:  
                     return True  
         return False
@@ -144,9 +142,9 @@ class Board:
         """
         for r in range(self.size):
             for c in range(self.size):
-            cell = self.rows[r][c]
-                if isinstance(cell, list) or cell is None:
-                return False
+                cell = self.rows[r][c]  # Indentation fixed here
+                if isinstance(cell, list) or cell is None:  # Indentation fixed here
+                    return False
         return True
 
     def update(self, row: int, column: int, assignment: int) -> None:
