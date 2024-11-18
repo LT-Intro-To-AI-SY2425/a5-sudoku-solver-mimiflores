@@ -179,6 +179,15 @@ def DFS(state: Board) -> Board:
     Returns:
         either None in the case of invalid input or a solved board
     """
+
+    # Add the initial state (root) to the <list>
+    # Choose a node (curr) to examine from the <list> (if there is nothing in <list> - FAILURE)
+    # Is curr a goal state?
+    # If so, SOLUTION
+    # If not, continue
+    # Expand curr by applying all possible operations (add the new states to the <list>)
+    # Go to step 2
+
     pass
 
 
