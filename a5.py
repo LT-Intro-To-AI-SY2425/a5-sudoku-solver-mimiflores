@@ -188,7 +188,10 @@ def DFS(state: Board) -> Board:
     # Expand curr by applying all possible operations (add the new states to the <list>)
     # Go to step 2
 
-    pass
+    start_board = state
+    curr_node = 
+    if(goal_test(curr_node)):
+        
 
 
 def BFS(state: Board) -> Board:
