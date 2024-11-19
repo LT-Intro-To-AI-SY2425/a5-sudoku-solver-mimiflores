@@ -190,11 +190,13 @@ def DFS(state: Board) -> Board:
     # Expand curr by applying all possible operations (add the new states to the <list>)
     # Go to step 2
 
-    start_board = state
-    curr_node = 
-    if(goal_test(curr_node)):
-        
-
+    s = Stack([state])
+    b = s.pop()
+    
+    mcc = b.find_most_constrained_cell()
+    for r, c in mcc:
+        b.update(r, c, b.rows[r][c])
+        s.push(b)
 
 def BFS(state: Board) -> Board:
     """Performs a breadth first search. Takes a Board and attempts to assign values to
