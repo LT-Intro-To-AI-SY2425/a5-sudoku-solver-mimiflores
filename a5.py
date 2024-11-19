@@ -191,12 +191,15 @@ def DFS(state: Board) -> Board:
     # Go to step 2
 
     s = Stack([state])
-    b = s.pop()
     
-    mcc = b.find_most_constrained_cell()
-    for r, c in mcc:
-        b.update(r, c, b.rows[r][c])
-        s.push(b)
+    while not s.is_empty():
+        b = s.pop()
+        mcc = b.find_most_constrained_cell()
+        row = mcc[0]
+        col = mcc[1]
+        for sel in b.rows[row][col]:
+            b.update(row, col, sel)
+            s.push(b)
 
 def BFS(state: Board) -> Board:
     """Performs a breadth first search. Takes a Board and attempts to assign values to
