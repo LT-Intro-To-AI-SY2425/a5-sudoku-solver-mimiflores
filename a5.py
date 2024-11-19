@@ -223,7 +223,26 @@ def BFS(state: Board) -> Board:
     Returns:
         either None in the case of invalid input or a solved board
     """
-    pass
+    q = Queue([state])
+
+    while not q.is_empty():
+        b = q.pop()
+
+        if b.goal_test():
+            return b 
+
+        if b.failure_test():
+            continue  
+
+        row, col = b.find_most_constrained_cell()
+
+        for val in b.rows[row][col]: 
+            b_copy = copy.deepcopy(b)  
+            b_copy.update(row, col, val)  
+
+            q.push(b_copy)
+
+    return None
 
 
 if __name__ == "__main__":
