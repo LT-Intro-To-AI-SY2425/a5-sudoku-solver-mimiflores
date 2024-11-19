@@ -142,8 +142,8 @@ class Board:
         """
         for r in range(self.size):
             for c in range(self.size):
-                cell = self.rows[r][c] 
-                if isinstance(cell, list) or cell is None:  
+                cell = self.rows[r][c]  
+                if isinstance(cell, list) and len(cell) > 1:  # cell has more than 1 possibility
                     return False
         return True
 
