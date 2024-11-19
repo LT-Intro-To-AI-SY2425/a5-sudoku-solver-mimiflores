@@ -128,7 +128,7 @@ class Board:
         """
         for r in range(self.size):
             for c in range(self.size):
-                cell = self.rows[r][c]  # Indentation fixed here
+                cell = self.rows[r][c]  
                 if isinstance(cell, list) and not cell:  
                     return True  
         return False
@@ -142,8 +142,8 @@ class Board:
         """
         for r in range(self.size):
             for c in range(self.size):
-                cell = self.rows[r][c]  # Indentation fixed here
-                if isinstance(cell, list) or cell is None:  # Indentation fixed here
+                cell = self.rows[r][c] 
+                if isinstance(cell, list) or cell is None:  
                     return False
         return True
 
