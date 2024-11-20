@@ -191,25 +191,19 @@ def DFS(state: Board) -> Board:
     # Go to step 2
 
     s = Stack([state])
-    
+
     while not s.is_empty():
-        b = s.pop()
-        
+        b: Board = s.pop()
         if b.goal_test():
-            return b  
+            return b
+        mcc = b.find_most_constrained_cell()        
+        row = mcc[0]
+        col = mcc[1]
         
-        if b.failure_test():
-            continue  
-
-        row, col = b.find_most_constrained_cell()
-        
-        for val in b.rows[row][col]:  
-            b_copy = copy.deepcopy(b) 
-            b_copy.update(row, col, val) 
-
-            s.push(b_copy)
-
-    return None
+        for sel in b.rows[row][col]:
+            cpy = copy.deepcopy(b)
+            cpy.update(row, col, sel)
+            s.push(cpy)
 
 def BFS(state: Board) -> Board:
     """Performs a breadth first search. Takes a Board and attempts to assign values to
@@ -226,23 +220,17 @@ def BFS(state: Board) -> Board:
     q = Queue([state])
 
     while not q.is_empty():
-        b = q.pop()
-
+        b: Board = q.pop()
         if b.goal_test():
-            return b 
-
-        if b.failure_test():
-            continue  
-
-        row, col = b.find_most_constrained_cell()
-
-        for val in b.rows[row][col]: 
-            b_copy = copy.deepcopy(b)  
-            b_copy.update(row, col, val)  
-
-            q.push(b_copy)
-
-    return None
+            return b
+        mcc = b.find_most_constrained_cell()        
+        row = mcc[0]
+        col = mcc[1]
+        
+        for sel in b.rows[row][col]:
+            cpy = copy.deepcopy(b)
+            cpy.update(row, col, sel)
+            q.push(cpy)
 
 
 if __name__ == "__main__":
