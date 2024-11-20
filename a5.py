@@ -140,12 +140,14 @@ class Board:
         Returns:
             True if we've placed all numbers, False otherwise
         """
-        for r in range(self.size):
-            for c in range(self.size):
-                cell = self.rows[r][c]  
-                if isinstance(cell, list) and len(cell) > 1: 
-                    return False
-        return True
+        # for r in range(self.size):
+        #     for c in range(self.size):
+        #         cell = self.rows[r][c]  
+        #         if isinstance(cell, list) and len(cell) > 1: 
+        #             return False
+        # return True
+
+        return self.num_nums_placed == self.size*self.size
 
     def update(self, row: int, column: int, assignment: int) -> None:
         """Assigns the given value to the cell given by passed in row and column
